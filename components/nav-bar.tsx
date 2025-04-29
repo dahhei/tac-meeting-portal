@@ -6,7 +6,6 @@ import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { useToast } from "@/hooks/use-toast"
 import { LogOut, Menu, X } from "lucide-react"
-import { ThemeToggle } from "./theme-toggle"
 
 export default function NavBar({ role }: { role: "admin" | "user" }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -61,12 +60,10 @@ export default function NavBar({ role }: { role: "admin" | "user" }) {
               <LogOut className="h-4 w-4 mr-2" />
               Logout
             </Button>
-            <ThemeToggle />
           </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center space-x-2">
-            <ThemeToggle />
             <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(!isMenuOpen)}>
               {isMenuOpen ? <X /> : <Menu />}
               <span className="sr-only">Toggle menu</span>

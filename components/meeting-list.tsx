@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { meetings } from "@/lib/meetingsData" // Import static data
 import { FileTextIcon, Loader2Icon } from "lucide-react"
 import { pdfjs, Document, Page } from 'react-pdf'
+import { Button } from "@/components/ui/button" // Import Button
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css'; // Required CSS
 import 'react-pdf/dist/esm/Page/TextLayer.css';     // Required CSS (if rendering text layer, not strictly needed for thumbnail)
 
@@ -21,7 +22,7 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
 
 /**
  * Renders a list of meetings and their associated documents using static data,
- * including a preview thumbnail of the first page of each PDF.
+ * including a preview thumbnail of the first page of each PDF, arranged side-by-side.
  */
 export function MeetingList() {
   const formatDate = (dateString: string) => {
@@ -38,7 +39,7 @@ export function MeetingList() {
     }
   };
 
-  const previewWidth = 150; // Set a width for the thumbnails
+  const previewWidth = 250; // Increased thumbnail width
 
   return (
     <div className="space-y-6">
@@ -59,50 +60,48 @@ export function MeetingList() {
                 </div>
               </AccordionTrigger>
               <AccordionContent>
-                <div className="space-y-4 pt-2"> {/* Increased spacing */}
+                <div className="flex flex-wrap gap-4 pt-2"> {/* Flexbox with gap */}
                   {meeting.documents.length === 0 ? (
                     <p className="text-sm text-muted-foreground">No documents available.</p>
                   ) : (
-                    <ul className="space-y-4"> {/* Increased spacing */}
-                      {meeting.documents.map((doc) => (
-                        <li key={doc.path} className="flex flex-col sm:flex-row items-start rounded-md border p-4"> {/* Allow flex column layout on small screens */}
-                          {/* Preview Section */}
-                          <div className={`mb-3 sm:mb-0 sm:mr-4 flex-shrink-0 w-full sm:w-[${previewWidth}px] border rounded overflow-hidden bg-muted`}> {/* Added styling */}
-                            <Document
-                              file={doc.path}
-                              loading={<div className="h-40 flex items-center justify-center text-muted-foreground"><Loader2Icon className="h-5 w-5 animate-spin mr-2"/>Loading preview...</div>}
-                              error={<div className="h-40 flex items-center justify-center text-destructive-foreground bg-destructive p-2 text-center">Failed to load preview.<br/>Ensure PDF exists at path.</div>} // Improved error message
-                              // options prop removed - relying on global worker config
-                            >
-                              {/* Render only the first page as a thumbnail */}
-                              <Page
-                                pageNumber={1}
-                                width={previewWidth}
-                                renderTextLayer={false} // Disable text layer for thumbnail
-                                renderAnnotationLayer={false} // Disable annotation layer for thumbnail
-                                // customTextRenderer prop removed
-                              />
-                            </Document>
-                          </div>
+                    meeting.documents.map((doc) => (
+                      // Each document item
+                      <div key={doc.path} className="flex flex-col items-center rounded-md border p-3 w-[${previewWidth + 20}px]"> {/* Fixed width container for item */}
+                        {/* Preview Section */}
+                        <div className={`mb-3 flex-shrink-0 w-[${previewWidth}px] h-auto border rounded overflow-hidden bg-muted`}> {/* Use specific width */}
+                          <Document
+                            file={doc.path}
+                            loading={<div className={`h-[${previewWidth * 1.4}px] flex items-center justify-center text-muted-foreground`}><Loader2Icon className="h-5 w-5 animate-spin mr-2"/>Loading...</div>} // Adjusted height
+                            error={<div className={`h-[${previewWidth * 1.4}px] flex items-center justify-center text-destructive-foreground bg-destructive p-2 text-center`}>Failed preview.</div>} // Adjusted height
+                          >
+                            <Page
+                              pageNumber={1}
+                              width={previewWidth}
+                              renderTextLayer={false}
+                              renderAnnotationLayer={false}
+                            />
+                          </Document>
+                        </div>
 
-                          {/* Info and Link Section */}
-                          <div className="flex-grow flex flex-col justify-between h-full">
-                             <div className="flex items-start mb-2">
-                               <FileTextIcon className="h-4 w-4 mr-2 flex-shrink-0 mt-1" />
-                               <span className="flex-grow break-words font-medium">{doc.name}</span>
-                             </div>
-                             <a
-                               href={doc.path}
-                               target="_blank" // Open in new tab
-                               rel="noopener noreferrer"
-                               className="mt-auto self-start sm:self-end px-3 py-1 text-sm border rounded-md hover:bg-accent whitespace-nowrap"
-                             >
-                               View Full PDF
-                             </a>
+                        {/* Info and Button Section Below Preview */}
+                        <div className="flex flex-col items-center text-center w-full">
+                          <div className="flex items-start mb-2">
+                            <FileTextIcon className="h-4 w-4 mr-1 flex-shrink-0 mt-1" />
+                            <span className="flex-grow break-words text-sm font-medium">{doc.name}</span>
                           </div>
-                        </li>
-                      ))}
-                    </ul>
+                          {/* Button styled link */}
+                          <Button variant="outline" size="sm" asChild className="mt-auto">
+                            <a
+                              href={doc.path}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              View Full PDF
+                            </a>
+                          </Button>
+                        </div>
+                      </div>
+                    ))
                   )}
                 </div>
               </AccordionContent>

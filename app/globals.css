@@ -59,30 +59,30 @@ body {
     --primary-foreground: 210 40% 98%; /* White/Light text */
     --secondary: 217 33% 17%; /* Muted Dark Blue */
     --secondary-foreground: 210 40% 98%; /* Light Grey/Off-white */
-    --muted: 217 33% 17%; /* Muted Dark Blue */
-    --muted-foreground: 215 20% 65%; /* Lighter Muted Grey/Blue */
-    --accent: 217 33% 17%; /* Muted Dark Blue */
+    --muted: 217 33% 17%; /* Muted Dark Blue Background */
+    --muted-foreground: 215 25% 80%; /* Lighter Muted Grey/Blue Text (Increased Lightness) */
+    --accent: 217 33% 22%; /* Brighter Accent Background (Increased Lightness) */
     --accent-foreground: 210 40% 98%; /* Light Grey/Off-white */
     --destructive: 0 63% 31%; /* Adjusted Red */
     --destructive-foreground: 210 40% 98%; /* Light Grey/Off-white */
-    --border: 217 33% 20%; /* Subtle Darker Blue */
-    --input: 217 33% 20%; /* Subtle Darker Blue */
+    --border: 217 33% 25%; /* Lighter Border (Increased Lightness) */
+    --input: 217 33% 25%; /* Lighter Input Background (Matches Border) */
     --ring: 216 91% 54%; /* Ring Blue - slightly adjusted */
-    --chart-1: 217 91% 60%; /* Use primary blue */
-    --chart-2: 160 60% 45%; /* Keep existing or adjust */
-    --chart-3: 30 80% 55%;  /* Keep existing or adjust */
-    --chart-4: 280 65% 60%; /* Keep existing or adjust */
-    --chart-5: 340 75% 55%; /* Keep existing or adjust */
+    --chart-1: 217 91% 60%;
+    --chart-2: 160 70% 50%;
+    --chart-3: 30 85% 60%;
+    --chart-4: 280 70% 65%;
+    --chart-5: 340 80% 60%;
 
     /* Update Sidebar Colors to Match */
-    --sidebar-background: 222 47% 11%; /* Match main background */
-    --sidebar-foreground: 210 40% 98%; /* Match main foreground */
-    --sidebar-primary: 217 91% 60%;    /* Match main primary */
-    --sidebar-primary-foreground: 210 40% 98%; /* Match primary foreground */
-    --sidebar-accent: 217 33% 17%;    /* Match main secondary/accent */
-    --sidebar-accent-foreground: 210 40% 98%; /* Match accent foreground */
-    --sidebar-border: 217 33% 20%;    /* Match main border */
-    --sidebar-ring: 216 91% 54%;     /* Match main ring */
+    --sidebar-background: 222 47% 11%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 217 91% 60%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 217 33% 22%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217 33% 25%;
+    --sidebar-ring: 216 91% 54%;
   }
 }
 

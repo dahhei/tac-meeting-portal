@@ -12,40 +12,38 @@ export interface MeetingDocument {
  * Represents a single meeting, containing its details and associated documents.
  */
 export interface Meeting {
-  /** A unique identifier for the meeting */
+  /** A unique identifier for the meeting (derived from folder name) */
   id: string;
-  /** The date of the meeting (e.g., "YYYY-MM-DD") */
+  /** The date of the meeting (derived from folder name) */
   date: string;
-  /** The title or main topic of the meeting */
+  /** The title or main topic of the meeting (derived from folder name) */
   title: string;
   /** An array of documents related to this meeting */
   documents: MeetingDocument[];
 }
 
 /**
- * The main data source for all meetings to be displayed in the portal.
- *
- * TODO: Replace this example data with your actual meeting information and PDF paths.
- * Ensure the `path` correctly points to the files within your `public/meetings/` directory structure.
- * Example: If a file is at `public/meetings/2024-07-15_Budget/agenda.pdf`, the path should be "/meetings/2024-07-15_Budget/agenda.pdf"
+ * Data source for meetings, generated from the contents of the public/meetings directory.
  */
 export const meetings: Meeting[] = [
   {
-    id: "example-meeting-1",
-    date: "2024-07-15",
-    title: "Example Budget Review",
+    id: "tac-2024-11-22-fall",
+    date: "2024-11-22",
+    title: "Fall TAC Meeting (Nov 2024)",
     documents: [
-      { name: "Agenda", path: "/meetings/YYYY-MM-DD_Meeting_Topic/agenda.pdf" }, // <-- CHANGE PATH
-      { name: "Presentation", path: "/meetings/YYYY-MM-DD_Meeting_Topic/presentation.pdf" }, // <-- CHANGE PATH
+      { name: "Training and Career Goals Progress Report", path: "/meetings/2024-11-22_Fall/20241122 Training and Career Goals Progress Report Jaycee.pdf" },
+      { name: "Thesis Advisory Committee Evaluation Form (Signed)", path: "/meetings/2024-11-22_Fall/Jaycee Fall 2024 Thesis Advisory Committee Evaluation Form_signed.pdf" },
+      { name: "TAC Report", path: "/meetings/2024-11-22_Fall/Jaycee TAC report 2024 Fall.pdf" },
     ],
   },
   {
-    id: "example-meeting-2",
-    date: "2024-08-01",
-    title: "Example Project Kickoff",
+    id: "tac-2025-04-28-spring",
+    date: "2025-04-28",
+    title: "Spring TAC Meeting (Apr 2025)",
     documents: [
-      { name: "Project Brief", path: "/meetings/YYYY-MM-DD_Another_Topic/brief.pdf" }, // <-- CHANGE PATH
+      { name: "TAC Report", path: "/meetings/2025-04-28_Spring/Jaycee TAC report 2025 Spring.pdf" },
+      { name: "Thesis Advisory Committee Evaluation Form", path: "/meetings/2025-04-28_Spring/Jaycee Spring 2025 Thesis Advisory Committee Evaluation Form.pdf" },
     ],
   },
-  // Add more meeting objects here following the same structure
+  // Note: Folder '2024-04-22_Spring' was empty and is not included.
 ]; 

@@ -49,38 +49,40 @@ body {
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
   .dark {
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 83.1%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --background: 222 47% 11%; /* Dark Blue */
+    --foreground: 210 40% 98%; /* Light Grey/Off-white */
+    --card: 222 47% 14%; /* Slightly lighter dark blue */
+    --card-foreground: 210 40% 98%; /* Light Grey/Off-white */
+    --popover: 222 47% 11%; /* Dark Blue */
+    --popover-foreground: 210 40% 98%; /* Light Grey/Off-white */
+    --primary: 217 91% 60%; /* Brighter Blue */
+    --primary-foreground: 210 40% 98%; /* White/Light text */
+    --secondary: 217 33% 17%; /* Muted Dark Blue */
+    --secondary-foreground: 210 40% 98%; /* Light Grey/Off-white */
+    --muted: 217 33% 17%; /* Muted Dark Blue */
+    --muted-foreground: 215 20% 65%; /* Lighter Muted Grey/Blue */
+    --accent: 217 33% 17%; /* Muted Dark Blue */
+    --accent-foreground: 210 40% 98%; /* Light Grey/Off-white */
+    --destructive: 0 63% 31%; /* Adjusted Red */
+    --destructive-foreground: 210 40% 98%; /* Light Grey/Off-white */
+    --border: 217 33% 20%; /* Subtle Darker Blue */
+    --input: 217 33% 20%; /* Subtle Darker Blue */
+    --ring: 216 91% 54%; /* Ring Blue - slightly adjusted */
+    --chart-1: 217 91% 60%; /* Use primary blue */
+    --chart-2: 160 60% 45%; /* Keep existing or adjust */
+    --chart-3: 30 80% 55%;  /* Keep existing or adjust */
+    --chart-4: 280 65% 60%; /* Keep existing or adjust */
+    --chart-5: 340 75% 55%; /* Keep existing or adjust */
+
+    /* Update Sidebar Colors to Match */
+    --sidebar-background: 222 47% 11%; /* Match main background */
+    --sidebar-foreground: 210 40% 98%; /* Match main foreground */
+    --sidebar-primary: 217 91% 60%;    /* Match main primary */
+    --sidebar-primary-foreground: 210 40% 98%; /* Match primary foreground */
+    --sidebar-accent: 217 33% 17%;    /* Match main secondary/accent */
+    --sidebar-accent-foreground: 210 40% 98%; /* Match accent foreground */
+    --sidebar-border: 217 33% 20%;    /* Match main border */
+    --sidebar-ring: 216 91% 54%;     /* Match main ring */
   }
 }
 
